@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+
+	int amount;
+	int number;
+	cout << "How many numbers do you want to store?";
+	cin >> amount;
+
+	vector<int> numbers(amount);
+
+	for (int i = 0; i < amount; i++)
+	{
+		cout << "Enter number(" << (i + 1) << "): ";
+		cin >> number;
+		numbers[i] = number;
+	}
+
+	//find maximum
+	int maximum=numbers[0];
+	int maxIndex=0;
+	for (int j = 0; j < amount; j++)
+	{
+		if (numbers[j] > maximum) {
+			maximum = numbers[j];
+			maxIndex = j;
+		}
+	}
+
+	//find minimum
+	int minimum = numbers[0];
+	int minIndex = 0;
+	for (int k = 0;k < amount;k++) {
+		if (numbers[k] < minimum) {
+			minimum = numbers[k];
+			minIndex = k;
+		}
+	}
+
+	cout << "The maximum number was found in inde " << maxIndex << "and is equal to " << maximum << endl;
+	cout << "The minimum number was found in inde " << minIndex << "and is equal to " << minimum << endl;
+
+	return 0;
+}
